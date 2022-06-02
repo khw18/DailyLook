@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="closetarr">
+        <item>전체조회</item>
+        <item>상의조회</item>
+        <item>하의조회</item>
+        <item>신발조회</item>
+    </string-array>
+</resources>
