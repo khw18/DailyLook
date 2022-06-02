@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyLook">
         <activity
-            android:name=".MainActivity"
+            android:name=".CombinationListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MyclosetActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
