@@ -19,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        db = ProfileDatabase.getInstance(applicationContext)!!
+//        db = ProfileDatabase.getInstance(applicationContext)!!
 
         binding.loginBtn.setOnClickListener {
             //로그인 성공 시 화면 전환 , 로그인 조건 코드 써야됨

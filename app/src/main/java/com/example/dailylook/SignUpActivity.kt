@@ -15,14 +15,14 @@ import kotlinx.coroutines.*
 class SignUpActivity : AppCompatActivity() {
 
     lateinit var binding: ActivitySignUpBinding
-    lateinit var db: ProfileDatabase
+//    lateinit var db: ProfileDatabase
     var sex: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        db = ProfileDatabase.getInstance(applicationContext)!!
+//        db = ProfileDatabase.getInstance(applicationContext)!!
 
         connectSpinner() //spinner 연결
         connectRadioBtn()   // radiobtnonchecklistener 연결
@@ -100,7 +100,7 @@ class SignUpActivity : AppCompatActivity() {
             sex.toString()
         )
         CoroutineScope(Dispatchers.IO).launch {
-            db.profileDao().insert(newUser)
+//            db.profileDao().insert(newUser)
         }
     }
 }

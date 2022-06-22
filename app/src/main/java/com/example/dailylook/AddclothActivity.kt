@@ -127,6 +127,7 @@ class AddclothActivity : AppCompatActivity() {
                 intent.putExtra("tag", tag)
                 intent.putExtra("desc", desc)
                 intent.putExtra("pay", pay)
+                intent.putExtra("uri", photoUri)
                 startActivity(intent)
             }
             else {

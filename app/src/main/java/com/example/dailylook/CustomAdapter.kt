@@ -52,18 +52,19 @@ class CustomAdapter(
         private val userAddress: TextView = itemView.findViewById<TextView>(R.id.addressTxt)
 
         fun bind(dataVo: DataVo, context: Context) {
-            if (dataVo.photo != "") {
-                val resourceId =
-                    context.resources.getIdentifier(dataVo.photo, "drawable", context.packageName)
-
-                if (resourceId > 0) {
-                    userPhoto.setImageResource(resourceId)
-                } else {
-                    userPhoto.setImageResource(R.mipmap.ic_launcher_round)
-                }
-            } else {
-                userPhoto.setImageResource(R.mipmap.ic_launcher_round)
-            }
+//            if (dataVo.photo != "") {
+//                val resourceId =
+//                    context.resources.getIdentifier(dataVo.photo, "drawable", context.packageName)
+//
+//                if (resourceId > 0) {
+//                    userPhoto.setImageResource(resourceId)
+//                } else {
+//                    userPhoto.setImageResource(R.mipmap.ic_launcher_round)
+//                }
+//            } else {
+//                userPhoto.setImageResource(R.mipmap.ic_launcher_round)
+//            }
+            userPhoto.setImageURI(dataVo.photo)
 
             //TextView에 데이터 세팅
             userName.text = dataVo.name
@@ -86,7 +87,7 @@ class CustomAdapter(
 
             // open another activity on item click
             val intent = Intent(context, AnotherActivity::class.java)
-            intent.putExtra("image_name", dataList[position].photo) // put image data in Intent
+            intent.putExtra("uri", dataList[position].photo) // put image data in Intent
             intent.putExtra("name", dataList[position].name)
             intent.putExtra("dest", dataList[position].address)
             context.startActivity(intent) // start Intent

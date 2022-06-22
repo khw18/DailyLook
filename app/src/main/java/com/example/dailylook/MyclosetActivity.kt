@@ -1,5 +1,6 @@
 package com.example.dailylook
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -9,10 +10,8 @@ import android.os.Build
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 
 private var userList = arrayListOf<DataVo>(
 )
@@ -36,7 +35,7 @@ class MyclosetActivity : AppCompatActivity() {
     var mAdapter = CustomAdapter(this, userList)
 
 
-
+    private var photoUri: Uri? = null
 
     @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -120,6 +119,10 @@ class MyclosetActivity : AppCompatActivity() {
                         val intent = Intent(this, AddclothActivity::class.java)
                         startActivity(intent)
                     }
+                    else if(which == 1) {
+                        val intent = Intent(this, AddclothActivity::class.java)
+                        startActivity(intent)
+                    }
                     //eles if 로 각 which마다 전환 구현
                 }
                 .show()
@@ -140,20 +143,22 @@ class MyclosetActivity : AppCompatActivity() {
         var tag = intent.getStringExtra("tag")
         var desc = intent.getStringExtra("desc")
         var pay = intent.getIntExtra("pay",0)
+        photoUri = intent.getParcelableExtra("uri")
+
 
         if (tag != null && desc != null) {
             if(pay == 0){
-                mAdapter.addItem(DataVo(tag, "", desc, 0, "levis"),userListTop)
-                mAdapter.addItem(DataVo(tag, "", desc, 0, "levis"),userList)
+                mAdapter.addItem(DataVo(tag, "", desc, 0, photoUri),userListTop)
+                mAdapter.addItem(DataVo(tag, "", desc, 0, photoUri),userList)
             }
             else if(pay == 1){
-                mAdapter.addItem(DataVo(tag, "", desc, 0, "levis"),userListBottom)
-                mAdapter.addItem(DataVo(tag, "", desc, 0, "levis"),userList)
+                mAdapter.addItem(DataVo(tag, "", desc, 0, photoUri),userListBottom)
+                mAdapter.addItem(DataVo(tag, "", desc, 0, photoUri),userList)
 
             }
             else if(pay == 2){
-                mAdapter.addItem(DataVo(tag, "", desc, 0, "levis"),userListShoes)
-                mAdapter.addItem(DataVo(tag, "", desc, 0, "levis"),userList)
+                mAdapter.addItem(DataVo(tag, "", desc, 0, photoUri),userListShoes)
+                mAdapter.addItem(DataVo(tag, "", desc, 0, photoUri),userList)
             }
         }
     }
