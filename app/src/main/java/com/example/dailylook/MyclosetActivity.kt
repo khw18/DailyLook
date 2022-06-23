@@ -120,7 +120,32 @@ class MyclosetActivity : AppCompatActivity() {
                         startActivity(intent)
                     }
                     else if(which == 1) {
-                        val intent = Intent(this, AddclothActivity::class.java)
+                        val intent = Intent(this, CombinationListActivity::class.java)
+
+//                        if(!userListTop.isEmpty()) {
+//                            for(i in 0..userListTop.size) {
+//                                intent.putExtra("top",userListTop[i].photo)
+//                            }
+//                        }
+//                        if(!userListBottom.isEmpty()) {
+//                            for(i in 0..userListBottom.size) {
+//                                intent.putExtra("bottom", userListBottom[i].photo)
+//                            }
+//                        }
+//                        if(!userListShoes.isEmpty()) {
+//                            for(i in 0..userListShoes.size) {
+//                                intent.putExtra("shoes", userListShoes[i].photo)
+//                            }
+//                        }
+
+                        intent.putExtra("top1",userListTop[0].photo)
+                        intent.putExtra("top2",userListTop[1].photo)
+
+                        intent.putExtra("bottom", userListBottom[0].photo)
+
+                        intent.putExtra("shoes", userListShoes[0].photo)
+
+
                         startActivity(intent)
                     }
                     //eles if 로 각 which마다 전환 구현

@@ -18,6 +18,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DailyLook">
         <activity
+            android:name=".CombinatedLookActivity"
+            android:exported="false" />
+        <activity
             android:name=".CombinationListActivity"
             android:exported="false" />
         <activity
